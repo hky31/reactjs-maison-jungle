@@ -64,7 +64,6 @@ function PlantInfo({waterScale, lightInfo, plantSize, plantColor}) {
         //     <span onMouseOver={() => handleColorInfo(color)}>Color : {color} </span><br />
         //     <span onMouseOver={() => handleSizeInfo(flowerSize)}>Size : {sizeTab.map((sizeElem) => plantSize >= sizeElem ? <span key={sizeElem.toString()}>{sizeIcon}</span> : null)} </span>
         // </div>
-
         // <div>            
         //     <div>
         //         <div >Water : {range.map((rangeElem) =>
@@ -77,7 +76,6 @@ function PlantInfo({waterScale, lightInfo, plantSize, plantColor}) {
         //             <Tooltip id="mon-tooltip-water" place="top" content={handleTooltipWater(waterScale)} />
         //         </div>
         //     </div>
-
         //     <div>
         //         <div>Light : {range.map((rangeElem) =>
         //             lightInfo >= rangeElem ? (
@@ -89,9 +87,7 @@ function PlantInfo({waterScale, lightInfo, plantSize, plantColor}) {
         //             <Tooltip id="mon-tooltip-light" place="top" content={handleTooltipLight(lightInfo)} />
         //         </div>
         //     </div>
-
         //     <span>Color : {color} </span><br />
-
         //     <div>
         //         <div>Size : {sizeTab.map((sizeElem) => plantSize >= sizeElem ? <span key={sizeElem.toString()}>{sizeIcon}</span> : null)} 
         //         </div>
@@ -99,15 +95,39 @@ function PlantInfo({waterScale, lightInfo, plantSize, plantColor}) {
         //             <Tooltip id="mon-tooltip-size" place="top" content={handleSizeInfo(plantSize)} />
         //         </div>
         //     </div>
-
 		// </div>
+        ///////////////////////////////////////////////////////////////////////////////////
+        // <div>            
+		// 	<div data-tooltip-id="mon-tooltip-water">Water : {range.map((rangeElem) =>
+		// 		waterScale >= rangeElem ? (
+		// 			<span key={rangeElem.toString()}>{scaleWater}</span>
+		// 		) : null
+		// 	)}
+        //         <Tooltip id="mon-tooltip-water" place="top" content={handleTooltipWater(waterScale)} />
+        //     </div>
+
+        //     <div data-tooltip-id="mon-tooltip-light">Light : {range.map((rangeElem) =>
+		// 		lightInfo >= rangeElem ? (
+		// 			<span key={rangeElem.toString()}>{scaleLight}</span>
+		// 		) : null
+		// 	)}
+        //         <Tooltip id="mon-tooltip-light" place="top" content={handleTooltipLight(lightInfo)} />
+        //     </div>
+
+        //     <span>Color : {color} </span><br />
+
+        //     <div data-tooltip-id="mon-tooltip-size">Size : {sizeTab.map((sizeElem) => plantSize >= sizeElem ? <span key={sizeElem.toString()}>{sizeIcon}</span> : null)} 
+        //       <Tooltip id="mon-tooltip-size" place="top" content={handleSizeInfo(plantSize)} />
+        //     </div>            
+		// </div>
+        ///////////////////////////////////////////////////////////////////////////////////
+        
         <div>            
 			<div data-tooltip-id="mon-tooltip-water">Water : {range.map((rangeElem) =>
 				waterScale >= rangeElem ? (
 					<span key={rangeElem.toString()}>{scaleWater}</span>
 				) : null
 			)}
-                <Tooltip id="mon-tooltip-water" place="top" content={handleTooltipWater(waterScale)} />
             </div>
 
             <div data-tooltip-id="mon-tooltip-light">Light : {range.map((rangeElem) =>
@@ -115,16 +135,8 @@ function PlantInfo({waterScale, lightInfo, plantSize, plantColor}) {
 					<span key={rangeElem.toString()}>{scaleLight}</span>
 				) : null
 			)}
-                <Tooltip id="mon-tooltip-light" place="top" content={handleTooltipLight(lightInfo)} />
-            </div>
-
-            <span>Color : {color} </span><br />
-
-            <div data-tooltip-id="mon-tooltip-size">Size : {sizeTab.map((sizeElem) => plantSize >= sizeElem ? <span key={sizeElem.toString()}>{sizeIcon}</span> : null)} 
-              <Tooltip id="mon-tooltip-size" place="top" content={handleSizeInfo(plantSize)} />
-            </div>            
+            </div>         
 		</div>
-        
     );
 }
 

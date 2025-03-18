@@ -1,8 +1,10 @@
 import Banner from "./Banner";
 import logo from "../assets/logo_leaf.png";
-// import Cart from './Cart'
+import Cart from './Cart'
 import ShoppingList from "./ShoppingList";
 import Footer from "./Footer";
+import '../styles/Layout.css'
+import { useState } from "react";
 
 // function App() {
 // 	return (
@@ -15,6 +17,8 @@ import Footer from "./Footer";
 // }
 
 function App() {
+	const [cart, updateCart] = useState([])
+
 	return (
 		<div>
 			<Banner>
@@ -22,8 +26,10 @@ function App() {
 				<h1 className="lmj-title">La maison jungle</h1>
 			</Banner>
 
-			{/* <Cart /> */}
-			<ShoppingList />
+			<div className='lmj-layout-inner'>
+				<Cart cart={cart} updateCart={updateCart} />
+				<ShoppingList cart={cart} updateCart={updateCart} />
+			</div>
 			<Footer />
 		</div>
 	);
