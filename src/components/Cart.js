@@ -12,7 +12,30 @@ function Cart({cart, updateCart}) {
 	// const [current_bouquet, updateBouquet] = useState(0)
 	// const resetCart = () => { updateMonstera(0);updateLierre(0);updateBouquet(0);}
 
-	// const [isOpen, setIsOpen] = useState(false);
+
+	function removeFromCart(name, price) {
+		const currentPlantSaved = cart.find((plant) => plant.name === name)
+		const cartRemovedCurrentPlant = cart.filter(cartItem => cartItem !== currentPlantSaved);
+		updateCart([
+			...cartRemovedCurrentPlant
+		])
+		// if (currentPlantSaved.amount > 1) {
+		// 	const cartFilteredCurrentPlant = cart.filter(
+		// 		(plant) => plant.name !== name
+		// 	)
+		// 	updateCart([
+		// 		...cartFilteredCurrentPlant,
+		// 		{ name, price, amount: currentPlantSaved.amount - 1 }
+		// 	])
+		// } else {
+		// 	const cartRemovedCurrentPlant = cart.filter(cartItem => cartItem !== currentPlantSaved);
+		// 	updateCart([
+		// 		...cartRemovedCurrentPlant
+		// 	])
+		// }
+	}
+
+	const [isOpen, setIsOpen] = useState(false);
 	const total = cart.reduce(
 		(acc, plantType) => acc + plantType.amount * plantType.price,
 		0
@@ -26,7 +49,8 @@ function Cart({cart, updateCart}) {
 					<ul>
 						{cart.map(({ name, price, amount }, index) => (
 							<div key={`${name}-${index}`}>
-								<i>[ {name.toUpperCase()} {price}€ ]</i> x {amount}
+								<i>[ {name.toUpperCase()} {price}€ ]</i> x {amount} &nbsp;&nbsp;&nbsp;
+								<button onClick={() => removeFromCart(name, price)}>Retirer</button><br /><br />
 							</div>
 						))}
 					</ul>
@@ -34,7 +58,7 @@ function Cart({cart, updateCart}) {
 					<button onClick={() => updateCart([])}>Vider le panier</button>
 				</div>
 			) : (
-				<div>Votre panier est vide</div>
+				<h1>Votre panier est vide</h1>
 			)}
 		</div>
 	);
